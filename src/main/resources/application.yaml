@@ -1,0 +1,28 @@
+server:
+  port: 8099
+  servlet:
+    context-path: /api
+    encoding:
+      force: true
+spring:
+  application:
+    name: auth-api
+  mvc:
+    throw-exception-if-no-handler-found: true
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: false
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
+    enabled: true
+swagger-servers-urls: http://localhost:${server.port}${server.servlet.context-path},http://127.0.0.1:${server.port}${server.servlet.context-path}
+
+aws:
+  cognito:
+    clientId: "2aququp1m1onfjffe593nu00lq"
+    userPoolId: "us-east-1_y8Kq1GetQ"
