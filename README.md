@@ -33,3 +33,49 @@ This API was built using [Java](https://www.java.com/) and several tools:
 - [Spring Security](https://spring.io/projects/spring-security) - Powerful and highly customizable security framework
 - [Lombok](https://projectlombok.org/) - Library to reduce boilerplate code
 - [Docker](https://www.docker.com/) - Platform for developing, shipping, and running applications in containers 
+------
+
+## Endpoints
+
+### 1. Credentials
+
+**POST** `/credentials` - Create credentials for patients and doctors
+
+```json
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "123456",
+  "userType": "PATIENT"
+}
+```
+
+**Response**: `200 OK` with true if the user has been created and false if not
+
+**Response Body**:
+
+```json
+{
+  true
+}
+```
+
+### 2. Authorization
+
+**POST** `/authorization` - get a valid token for the user
+
+```json
+{
+    "email": "email@email.com",
+    "password": "password"
+}
+```
+
+**Response**: `200 OK` with the valid user token
+**Response Body**:
+
+```json
+{
+  my-valid-token
+}
+```
